@@ -1,3 +1,3 @@
 export const settings = {
-	base1c: "/mif"
+	base1c: ""
 };
