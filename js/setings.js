@@ -1,1 +1,3 @@
-export const settings = { base1c: "" };
+export const settings = { 
+  base1c: ""
+};
