@@ -5,6 +5,14 @@ const elSearchInput = document.getElementById('searchInput');
 let timerId = null;
 
 document.addEventListener('DOMContentLoaded', function () {
+	if (!settings.base1c) {
+		const navToggle = document.getElementById('nav-toggle');
+		const nav = document.querySelector('.nav');
+		const navToggleLabel = document.querySelector('.nav-toggle');
+		if (navToggle) navToggle.style.display = 'none';
+		if (nav) nav.style.display = 'none';
+		if (navToggleLabel) navToggleLabel.style.display = 'none';
+	}
 	const url = new URL(window.location.href);
 	const filter = url.searchParams.get('filter');
 	url.searchParams.delete('nocache');
@@ -64,6 +72,8 @@ function clearMessage() {
 
 async function checkLink(token) {
 	try {
+		if (!settings.base1c) return;
+		
 		const url1c = `${location.protocol}//${location.hostname}${settings.base1c}`;
 		//uricode = encodeURIComponent(token);
 		const url1cHS = `${url1c}/hs/api/check/${token}`;
@@ -107,4 +117,3 @@ function searchFunction() {
 			trs[j].style.display = "none";
 	}
 };
-
